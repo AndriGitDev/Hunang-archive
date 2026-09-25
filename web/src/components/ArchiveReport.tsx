@@ -2,9 +2,8 @@ import Link from "next/link";
 import { ArchiveHeader } from "@/components/ArchiveHeader";
 import { ArchiveFooter } from "@/components/ArchiveFooter";
 import { ArchiveChart } from "@/components/ArchiveChart";
+import { REPO_URL } from "@/copy/constants";
 import { archive, integer, medianCompleteDay, observedAt, percent, protocolLikeAttempts, rankedDays, topTwoCountryAttempts, totals, utcDay } from "@/lib/archive";
-
-const source = "https://github.com/AndriGitDev/Hunang";
 
 export function ArchiveReport() {
   return <div className="archive-shell">
@@ -62,7 +61,7 @@ export function ArchiveReport() {
 
       <section className="archive-section archive-method" id="method">
         <div className="archive-section-kicker">05 / METHOD & LIMITS</div>
-        <div className="archive-intro-grid"><h2>What the numbers<br /><em>can tell us.</em></h2><div><p>Cowrie emulated SSH and Telnet on an isolated VPS. A shipper forwarded events to an authenticated ingest API. Source IPs were replaced at ingest by a keyed pseudonym and a truncated network prefix. The public site received only aggregate rollups. The 23-second delay compares the recorded sensor-live timestamp with the first captured event.</p><p>Lifetime totals, leaderboards, and daily buckets survive the 30-day event purge. The 24-hour IPv4/IPv6 counts and 48-hour hourly series are windowed observations and are excluded from the long-term conclusions here. ATT&CK counts represent classified events; categories may overlap and must not be summed as incidents.</p><p>This is one sensor at one address, over one period. It is a case study of traffic that reached that sensor, not an estimate of the whole internet or a list of people behind the traffic. GeoIP data came from <a href="https://db-ip.com">DB-IP Lite</a> under CC BY 4.0. <a href={`${source}/blob/main/docs/DATA-HANDLING.md`}>Read the data handling policy ↗</a></p></div></div>
+        <div className="archive-intro-grid"><h2>What the numbers<br /><em>can tell us.</em></h2><div><p>Cowrie emulated SSH and Telnet on an isolated VPS. A shipper forwarded events to an authenticated ingest API. Source IPs were replaced at ingest by a keyed pseudonym and a truncated network prefix. The public site received only aggregate rollups. The 23-second delay compares the recorded sensor-live timestamp with the first captured event.</p><p>Lifetime totals, leaderboards, and daily buckets survive the 30-day event purge. The 24-hour IPv4/IPv6 counts and 48-hour hourly series are windowed observations and are excluded from the long-term conclusions here. ATT&CK counts represent classified events; categories may overlap and must not be summed as incidents.</p><p>This is one sensor at one address, over one period. It is a case study of traffic that reached that sensor, not an estimate of the whole internet or a list of people behind the traffic. GeoIP data came from <a href="https://db-ip.com">DB-IP Lite</a> under CC BY 4.0. <a href={`${REPO_URL}/blob/main/docs/DATA-HANDLING.md`}>Read the data handling policy ↗</a></p></div></div>
       </section>
 
       <section className="archive-next"><div><span>THE UNDERLYING COUNTS</span><h2>See the collected results.</h2><p>Daily activity, source countries, credentials, client banners, and observed techniques from the dated anonymous rollup snapshot.</p></div><Link href="/results">Explore the results <span aria-hidden>↗</span></Link></section>

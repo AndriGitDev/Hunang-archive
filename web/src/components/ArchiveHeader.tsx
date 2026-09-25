@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { KastroStar } from "@/components/KastroStar";
+import { REPO_URL } from "@/copy/constants";
 
 export function ArchiveHeader({ active }: { active: "report" | "results" }) {
   return <header className="archive-header">
@@ -7,7 +8,7 @@ export function ArchiveHeader({ active }: { active: "report" | "results" }) {
     <nav aria-label="Main navigation">
       <Link href="/" aria-current={active === "report" ? "page" : undefined}>The report</Link>
       <Link href="/results" aria-current={active === "results" ? "page" : undefined}>Explore results</Link>
-      <a href="https://github.com/AndriGitDev/Hunang">Source code ↗</a>
+      <a href={REPO_URL}>Source code ↗</a>
     </nav>
   </header>;
 }
