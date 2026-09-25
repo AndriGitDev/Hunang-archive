@@ -1,0 +1,39 @@
+# secrets — never commit
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# data — the SQLite db contains event data; never commit
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# node
+node_modules/
+dist/
+coverage/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# cowrie runtime state
+honeypot/var/
+honeypot/dl/
+
+# editor/os
+.DS_Store
+.idea/
+.vscode/
+
+# vercel CLI link metadata
+.vercel

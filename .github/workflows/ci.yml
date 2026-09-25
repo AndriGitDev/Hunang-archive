@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  ingest:
+    name: ingest — typecheck, test, seed against Postgres
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ingest
+    # The unit tests run against PGlite (Postgres compiled to WASM) and need
+    # no service. This container exists so the seed step exercises a real
+    # server — the same client, driver and dialect the live ingest service used.
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: hunang
+          POSTGRES_PASSWORD: ci-not-a-secret
+          POSTGRES_DB: hunang
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U hunang -d hunang"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: seed builds a renderable dataset
+        env:
+          INGEST_TOKEN: ci-token-0123456789abcdef
+          IP_HASH_SECRET: ci-hash-0123456789abcdef
+          DATABASE_URL: postgres://hunang:ci-not-a-secret@localhost:5432/hunang
+          PGSSLMODE: disable
+        run: npm run seed
+
+  shipper:
+    name: shipper — typecheck, test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: honeypot/shipper
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  web:
+    name: web — typecheck, build, leak check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: build the site
+        working-directory: web
+        # The archived web tier builds from the checked-in anonymous snapshot
+        # and does not require the ingest service or any runtime credentials.
+        run: npm ci && npm run typecheck && npm run build
+      - name: fail if any full IP leaks into the client bundle
+        working-directory: web
+        run: |
+          if grep -rhoE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' .next/static public/archive \
+             | grep -vE '^(0|1|127)\.' | grep -q .; then
+            echo "raw IP found in client bundle"; exit 1
+          fi
+          echo "no raw IPs in client bundle"

@@ -1,0 +1,129 @@
+# Hunang — local development & demo.
+#
+#   docker compose up --build            → postgres + ingest + seeded demo data + web
+#   docker compose --profile sensor up   → also run a local Cowrie + shipper
+#                                          (localhost only; NOT internet-facing)
+#
+# The default stack contains NO honeypot. It seeds realistic synthetic
+# events so the dashboard is fully reviewable without exposing anything.
+# Deploying a real, internet-facing sensor is a deliberate owner action —
+# follow docs/RUNBOOK.md and the safety checklist.
+#
+# Production does NOT use this file: ingest and private Postgres run as
+# separate Coolify resources, and the sensor uses infra/compose.sensor.yml.
+
+services:
+  # Local stand-in for the private Postgres production uses. Never exposed
+  # outside the compose network; the demo credentials below are not secrets
+  # and must not be reused anywhere real.
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: hunang
+      POSTGRES_PASSWORD: local-demo-not-a-secret
+      POSTGRES_DB: hunang
+    volumes:
+      - hunang-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hunang -d hunang"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # One-shot: fill the database with synthetic data + rollups.
+  seed:
+    build: ./ingest
+    command: ["npx", "tsx", "src/seed.ts"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      INGEST_TOKEN: ${INGEST_TOKEN:-local-demo-token-not-a-secret-000}
+      IP_HASH_SECRET: ${IP_HASH_SECRET:-local-demo-hash-not-a-secret-0000}
+      DATABASE_URL: postgres://hunang:local-demo-not-a-secret@postgres:5432/hunang
+
+  # Ingest API + scheduled aggregation/retention. The only inbound path
+  # from a sensor. In the default (demo) stack nothing ships to it; it
+  # keeps the rollups fresh over the seeded data.
+  ingest:
+    build: ./ingest
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+    environment:
+      INGEST_TOKEN: ${INGEST_TOKEN:-local-demo-token-not-a-secret-000}
+      IP_HASH_SECRET: ${IP_HASH_SECRET:-local-demo-hash-not-a-secret-0000}
+      DATABASE_URL: postgres://hunang:local-demo-not-a-secret@postgres:5432/hunang
+      INGEST_PORT: "8400"
+      ROLLUPS_PORT: "8402"
+      RETENTION_DAYS: ${RETENTION_DAYS:-30}
+      AGGREGATE_INTERVAL_SECONDS: ${AGGREGATE_INTERVAL_SECONDS:-300}
+    ports:
+      # :8400 is the sensor-only ingest port; :8402 is the public read-only
+      # rollups API. Both bound to loopback here for the local demo.
+      - "127.0.0.1:8400:8400"
+      - "127.0.0.1:8402:8402"
+    restart: unless-stopped
+    healthcheck:
+      # Ready only once the public rollups API is actually serving.
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://localhost:8402/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+
+  # Public site. Fetches anonymous rollups over HTTP from the ingest read
+  # API; it holds no database driver and never talks to a sensor.
+  web:
+    build: ./web
+    depends_on:
+      ingest:
+        condition: service_healthy
+    environment:
+      HUNANG_ROLLUPS_URL: http://ingest:8402/v1/rollups
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  # ── sensor profile (opt-in) ────────────────────────────────────────────
+  # Local Cowrie + shipper, for trying the real capture path on your own
+  # machine. SSH is on localhost:2222 only. Do not port-forward this to
+  # the internet from your workstation.
+  cowrie:
+    # Pinned, not :latest — the security model (docs/SECURITY.md S5) depends on
+    # running a known image. The production sensor (infra/compose.sensor.yml)
+    # pins the digest of this same tag, verified with:
+    #   docker buildx imagetools inspect cowrie/cowrie:3.0.12
+    image: cowrie/cowrie:3.0.12
+    profiles: ["sensor"]
+    ports:
+      - "127.0.0.1:2222:2222" # ssh
+      - "127.0.0.1:2223:2223" # telnet
+    volumes:
+      - ./honeypot/cowrie/cowrie.cfg:/cowrie/cowrie-git/etc/cowrie.cfg:ro
+      - cowrie-log:/cowrie/cowrie-git/var/log/cowrie
+    restart: unless-stopped
+
+  shipper:
+    build: ./honeypot/shipper
+    profiles: ["sensor"]
+    depends_on:
+      - cowrie
+      - ingest
+    environment:
+      INGEST_URL: http://ingest:8400/v1/events
+      INGEST_TOKEN: ${INGEST_TOKEN:-local-demo-token-not-a-secret-000}
+      COWRIE_LOG: /cowrie/var/log/cowrie/cowrie.json
+      SENSOR_NAME: ${SENSOR_NAME:-hp-local}
+    volumes:
+      - cowrie-log:/cowrie/var/log/cowrie:ro
+    restart: unless-stopped
+
+volumes:
+  hunang-pgdata:
+  cowrie-log:

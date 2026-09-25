@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node scripts/fetch-geoip.mjs",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/v1/events", "destination": "/api/v1/events" },
+    { "source": "/v1/rollups", "destination": "/api/v1/rollups" },
+    { "source": "/healthz", "destination": "/api/healthz" }
+  ],
+  "crons": [{ "path": "/api/cron/aggregate", "schedule": "5 * * * *" }],
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 60,
+      "includeFiles": "geoip/**"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    }
+  ]
+}

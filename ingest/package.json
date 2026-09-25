@@ -1,0 +1,32 @@
+{
+  "name": "hunang-ingest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Hardened ingest API + datastore + aggregation for the Hunang honeypot dashboard",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "node scripts/fetch-geoip.mjs",
+    "seed": "tsx src/seed.ts",
+    "aggregate": "tsx src/run-aggregate.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "maxmind": "^5.0.1",
+    "pg": "^8.16.3",
+    "tsx": "^4.20.6",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.3.10",
+    "@types/node": "^22.18.13",
+    "@types/pg": "^8.15.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "hunang-shipper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tails Cowrie's JSON event log and ships normalized events to the ingest API",
+  "scripts": {
+    "start": "tsx src/shipper.ts",
+    "replay": "tsx src/replay.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tsx": "^4.20.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.13",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "postcss": "^8.5.26"
+  }
+}

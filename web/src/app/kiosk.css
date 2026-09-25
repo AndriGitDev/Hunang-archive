@@ -1,0 +1,297 @@
+/* Hunang kiosk — dark ops-room view for a 1080p wall display.
+   Every rule is scoped under .kiosk; the editorial page stays light. */
+
+.kiosk {
+  /* dark tokens — Kastro deep */
+  --k-bg: #0F2633;
+  --k-panel: #14303E;
+  --k-line: rgba(255, 255, 255, 0.12);
+  --k-text: #FAFAFA;
+  --k-dim: rgba(250, 250, 250, 0.55);
+  --k-yellow: #F2B705;
+  --k-yellow-deep: #C99604;
+  --k-coral: #D64541;
+
+  /* dark overrides for the shared SVG chart/map variables —
+     ramp runs dim → brand yellow so the hottest countries glow */
+  --map-shade-1: #2C3A34;
+  --map-shade-2: #55511E;
+  --map-shade-3: #8C6F0E;
+  --map-shade-4: #C49304;
+  --map-shade-5: #F2B705;
+  --map-none: #17313F;
+  --map-stroke: rgba(255, 255, 255, 0.14);
+  --chart-bar: #F2B705;
+  --chart-zero: #1D3947;
+  --chart-axis: #5C7482;
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--k-bg);
+  color: var(--k-text);
+  font-family: var(--sans);
+}
+
+body:has(.kiosk) {
+  background: #0F2633;
+  overflow: hidden;
+}
+
+.kiosk-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ── header ─────────────────────────────────────────────────────────── */
+
+.kiosk-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.7rem 1.4rem;
+  border-bottom: 2px solid var(--k-line);
+}
+
+.kiosk-wordmark {
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--k-yellow);
+}
+
+.kiosk-header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 1.75rem;
+}
+
+.kiosk-controls {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1.25rem;
+}
+
+.kiosk-fullscreen {
+  background: none;
+  border: 1px solid var(--k-line);
+  color: var(--k-dim);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+.kiosk-fullscreen:hover {
+  color: var(--k-yellow);
+  border-color: var(--k-yellow);
+}
+
+.kiosk-back {
+  text-decoration-color: var(--k-yellow-deep);
+}
+
+/* ── grid ───────────────────────────────────────────────────────────── */
+
+.kiosk-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-areas:
+    "left map right"
+    "left chart right";
+  grid-template-columns: clamp(320px, 23vw, 460px) 1fr clamp(320px, 23vw, 460px);
+  grid-template-rows: 1fr minmax(200px, 24vh);
+  gap: 2px;
+  background: var(--k-line);
+}
+
+.kiosk-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+}
+
+.kiosk-panel {
+  position: relative;
+  background: var(--k-bg);
+  padding: 1.1rem 1.3rem;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* kastro HUD corner tick */
+.kiosk-panel::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--k-yellow);
+  border-right: 2px solid var(--k-yellow);
+  opacity: 0.65;
+  pointer-events: none;
+}
+.kiosk-panel--grow {
+  flex: 1;
+}
+
+.kiosk-panel-title {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+/* chart panel: let the SVG fill the remaining row height */
+.kiosk-panel .chart-frame {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.kiosk-panel .chart-frame svg {
+  flex: 1;
+  min-height: 0;
+}
+
+.kiosk-map {
+  justify-content: center;
+  padding: 1.25rem 2rem;
+}
+
+/* ── counters ───────────────────────────────────────────────────────── */
+
+.kvalue {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.kvalue--hero {
+  font-size: clamp(2.6rem, 3.8vw, 4.4rem);
+  color: var(--k-yellow);
+  margin: 0.4rem 0 1.1rem;
+}
+
+.kstat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 1rem;
+}
+
+.kstat .kvalue {
+  font-size: clamp(1.25rem, 1.7vw, 1.8rem);
+  margin-top: 0.2rem;
+}
+
+.kiosk-note {
+  margin-top: 1.1rem;
+}
+
+.kiosk-minis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  min-width: 0;
+}
+.kiosk-minis > div {
+  min-width: 0;
+}
+
+/* ── dark overrides for reused editorial classes ────────────────────── */
+
+.kiosk .label {
+  color: var(--k-dim);
+}
+
+.kiosk a:hover {
+  color: var(--k-yellow);
+}
+
+.kiosk table {
+  font-size: 0.9rem;
+}
+/* long mono credentials must be able to break, or the tables grow past
+   their fixed-width panels and the count columns get clipped */
+.kiosk .cred,
+.kiosk td.mono {
+  overflow-wrap: anywhere;
+}
+.kiosk td,
+.kiosk th {
+  padding-right: 0.55rem;
+}
+.kiosk th {
+  color: var(--k-dim);
+  border-bottom-color: var(--k-line);
+}
+.kiosk td {
+  border-bottom-color: var(--k-line);
+}
+.kiosk .rank {
+  color: var(--k-dim);
+}
+.kiosk .cred .sep {
+  color: var(--k-yellow);
+}
+.kiosk .countbar {
+  background: var(--k-yellow-deep);
+}
+
+.kiosk .chart-frame {
+  border: none;
+  padding: 0;
+}
+.kiosk .chart-frame figcaption {
+  border-top-color: var(--k-line);
+}
+
+.kiosk .map-frame {
+  border: 1px solid var(--k-line);
+  background: var(--k-panel);
+}
+.kiosk .legend .swatch {
+  border-color: var(--k-line);
+}
+
+.kiosk .live-dot {
+  background: var(--k-coral);
+}
+
+/* ── small screens: fall back to a scrollable single column ─────────── */
+
+@media (max-width: 1100px) {
+  .kiosk {
+    position: static;
+    overflow: visible;
+    min-height: 100vh;
+  }
+  body:has(.kiosk) {
+    overflow: auto;
+  }
+  .kiosk-frame {
+    height: auto;
+  }
+  .kiosk-header {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+  .kiosk-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .kiosk-map {
+    padding: 1.1rem 1.3rem;
+  }
+  .kiosk-panel .chart-frame svg {
+    min-height: 160px;
+  }
+}

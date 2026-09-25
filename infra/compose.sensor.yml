@@ -1,0 +1,66 @@
+# Hunang — PRODUCTION sensor tier (Tier 1).
+#
+# Run from this directory on the sensor host, with a .env beside this file —
+# but ONLY after infra/nftables.conf is applied and the egress go/no-go tests
+# in infra/cloud-egress.md pass (see docs/RUNBOOK.md §B3):
+#
+#   cd /opt/hunang/infra
+#   docker compose -f compose.sensor.yml up -d
+#
+# Required .env values:
+#   INGEST_URL     https://your-ingest-host.example/v1/events
+#   INGEST_TOKEN   the same value as the ingest deployment's INGEST_TOKEN
+# Optional:
+#   SENSOR_NAME    defaults to hp-hel1
+#   SHIPPER_FLUSH_INTERVAL_SECONDS  defaults to 3600 (UTC-aligned)
+#
+# This host holds exactly one secret (INGEST_TOKEN). Its only persistent data
+# is hostile Cowrie telemetry plus the shipper's bounded retry/checkpoint
+# state; it holds no application/database credentials and remains disposable.
+
+name: hunang-sensor
+
+services:
+  cowrie:
+    # Pinned by digest per docs/SECURITY.md S5 — this is tag 3.0.12,
+    # resolved 2026-08-06 with:
+    #   docker buildx imagetools inspect cowrie/cowrie:3.0.12
+    image: cowrie/cowrie@sha256:3e4ce75576e4dffc3397ae3ad8dbb00afa00fe826b1531fea50d4fd9728326e1
+    ports:
+      # Host 22/23 are free for bait because real admin SSH moved to 22022
+      # before this file is used. Docker's port publishing replaces the nft
+      # redirect table (kept commented out in infra/nftables.conf).
+      - "22:2222" # ssh bait
+      - "23:2223" # telnet bait
+    volumes:
+      - ../honeypot/cowrie/cowrie.cfg:/cowrie/cowrie-git/etc/cowrie.cfg:ro
+      - cowrie-log:/cowrie/cowrie-git/var/log/cowrie
+    restart: unless-stopped
+    # A Cowrie bug (or an attacker exploiting one) must not be able to exhaust
+    # the host — this box also runs the shipper and the admin SSH path.
+    mem_limit: 512m
+    pids_limit: 256
+
+  shipper:
+    build: ../honeypot/shipper
+    depends_on:
+      - cowrie
+    environment:
+      INGEST_URL: ${INGEST_URL:?set an HTTPS ingest endpoint before starting the sensor}
+      INGEST_TOKEN: ${INGEST_TOKEN:?same token as the ingest deployment}
+      COWRIE_LOG: /cowrie/var/log/cowrie/cowrie.json
+      SENSOR_NAME: ${SENSOR_NAME:-hp-hel1}
+      SHIPPER_STATE_DIR: /state
+      SHIPPER_FLUSH_INTERVAL_SECONDS: ${SHIPPER_FLUSH_INTERVAL_SECONDS:-3600}
+      SHIPPER_MAX_SPOOL_BYTES: ${SHIPPER_MAX_SPOOL_BYTES:-268435456}
+      SHIPPER_REPLAY_SINCE: ${SHIPPER_REPLAY_SINCE:-}
+    volumes:
+      - cowrie-log:/cowrie/var/log/cowrie:ro
+      - shipper-state:/state
+    restart: unless-stopped
+    mem_limit: 256m
+    pids_limit: 128
+
+volumes:
+  cowrie-log:
+  shipper-state:

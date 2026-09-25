@@ -1,0 +1,1365 @@
+{
+  "hasData": true,
+  "totals": {
+    "totalLoginAttempts": 450635,
+    "attempts24h": 5296,
+    "ipv4Attempts24h": 5296,
+    "ipv6Attempts24h": 0,
+    "uniqueSources": 12337,
+    "successfulLogins": 20633,
+    "sessions": 369147,
+    "commandsEntered": 154407,
+    "firstEventTs": 1786024442860,
+    "sensorLiveTs": 1786024419860,
+    "firstAttackDelayS": 23,
+    "lastAggregatedAt": 1790347970392
+  },
+  "hourly": [
+    {
+      "bucketStart": 1790172000000,
+      "count": 6
+    },
+    {
+      "bucketStart": 1790175600000,
+      "count": 99
+    },
+    {
+      "bucketStart": 1790179200000,
+      "count": 187
+    },
+    {
+      "bucketStart": 1790182800000,
+      "count": 809
+    },
+    {
+      "bucketStart": 1790186400000,
+      "count": 353
+    },
+    {
+      "bucketStart": 1790190000000,
+      "count": 115
+    },
+    {
+      "bucketStart": 1790193600000,
+      "count": 636
+    },
+    {
+      "bucketStart": 1790197200000,
+      "count": 788
+    },
+    {
+      "bucketStart": 1790200800000,
+      "count": 96
+    },
+    {
+      "bucketStart": 1790204400000,
+      "count": 44
+    },
+    {
+      "bucketStart": 1790208000000,
+      "count": 80
+    },
+    {
+      "bucketStart": 1790211600000,
+      "count": 177
+    },
+    {
+      "bucketStart": 1790215200000,
+      "count": 147
+    },
+    {
+      "bucketStart": 1790218800000,
+      "count": 115
+    },
+    {
+      "bucketStart": 1790222400000,
+      "count": 162
+    },
+    {
+      "bucketStart": 1790226000000,
+      "count": 250
+    },
+    {
+      "bucketStart": 1790229600000,
+      "count": 166
+    },
+    {
+      "bucketStart": 1790233200000,
+      "count": 74
+    },
+    {
+      "bucketStart": 1790236800000,
+      "count": 174
+    },
+    {
+      "bucketStart": 1790240400000,
+      "count": 231
+    },
+    {
+      "bucketStart": 1790244000000,
+      "count": 483
+    },
+    {
+      "bucketStart": 1790247600000,
+      "count": 800
+    },
+    {
+      "bucketStart": 1790251200000,
+      "count": 246
+    },
+    {
+      "bucketStart": 1790254800000,
+      "count": 772
+    },
+    {
+      "bucketStart": 1790258400000,
+      "count": 539
+    },
+    {
+      "bucketStart": 1790262000000,
+      "count": 120
+    },
+    {
+      "bucketStart": 1790265600000,
+      "count": 69
+    },
+    {
+      "bucketStart": 1790269200000,
+      "count": 105
+    },
+    {
+      "bucketStart": 1790272800000,
+      "count": 134
+    },
+    {
+      "bucketStart": 1790276400000,
+      "count": 284
+    },
+    {
+      "bucketStart": 1790280000000,
+      "count": 178
+    },
+    {
+      "bucketStart": 1790283600000,
+      "count": 172
+    },
+    {
+      "bucketStart": 1790287200000,
+      "count": 161
+    },
+    {
+      "bucketStart": 1790290800000,
+      "count": 613
+    },
+    {
+      "bucketStart": 1790294400000,
+      "count": 114
+    },
+    {
+      "bucketStart": 1790298000000,
+      "count": 589
+    },
+    {
+      "bucketStart": 1790301600000,
+      "count": 819
+    },
+    {
+      "bucketStart": 1790305200000,
+      "count": 291
+    },
+    {
+      "bucketStart": 1790308800000,
+      "count": 91
+    },
+    {
+      "bucketStart": 1790312400000,
+      "count": 110
+    },
+    {
+      "bucketStart": 1790316000000,
+      "count": 177
+    },
+    {
+      "bucketStart": 1790319600000,
+      "count": 324
+    },
+    {
+      "bucketStart": 1790323200000,
+      "count": 229
+    },
+    {
+      "bucketStart": 1790326800000,
+      "count": 127
+    },
+    {
+      "bucketStart": 1790330400000,
+      "count": 148
+    },
+    {
+      "bucketStart": 1790334000000,
+      "count": 113
+    },
+    {
+      "bucketStart": 1790337600000,
+      "count": 101
+    },
+    {
+      "bucketStart": 1790341200000,
+      "count": 210
+    }
+  ],
+  "daily": [
+    {
+      "bucketStart": 1785974400000,
+      "count": 2351
+    },
+    {
+      "bucketStart": 1786060800000,
+      "count": 8442
+    },
+    {
+      "bucketStart": 1786147200000,
+      "count": 10020
+    },
+    {
+      "bucketStart": 1786233600000,
+      "count": 12826
+    },
+    {
+      "bucketStart": 1786320000000,
+      "count": 9632
+    },
+    {
+      "bucketStart": 1786406400000,
+      "count": 8814
+    },
+    {
+      "bucketStart": 1786492800000,
+      "count": 4751
+    },
+    {
+      "bucketStart": 1786579200000,
+      "count": 6784
+    },
+    {
+      "bucketStart": 1786665600000,
+      "count": 8804
+    },
+    {
+      "bucketStart": 1786752000000,
+      "count": 6720
+    },
+    {
+      "bucketStart": 1786838400000,
+      "count": 6277
+    },
+    {
+      "bucketStart": 1786924800000,
+      "count": 4824
+    },
+    {
+      "bucketStart": 1787011200000,
+      "count": 4858
+    },
+    {
+      "bucketStart": 1787097600000,
+      "count": 4533
+    },
+    {
+      "bucketStart": 1787184000000,
+      "count": 6286
+    },
+    {
+      "bucketStart": 1787270400000,
+      "count": 19083
+    },
+    {
+      "bucketStart": 1787356800000,
+      "count": 14198
+    },
+    {
+      "bucketStart": 1787443200000,
+      "count": 7800
+    },
+    {
+      "bucketStart": 1787529600000,
+      "count": 5051
+    },
+    {
+      "bucketStart": 1787616000000,
+      "count": 4508
+    },
+    {
+      "bucketStart": 1787702400000,
+      "count": 6457
+    },
+    {
+      "bucketStart": 1787788800000,
+      "count": 11886
+    },
+    {
+      "bucketStart": 1787875200000,
+      "count": 38737
+    },
+    {
+      "bucketStart": 1787961600000,
+      "count": 9443
+    },
+    {
+      "bucketStart": 1788048000000,
+      "count": 13497
+    },
+    {
+      "bucketStart": 1788134400000,
+      "count": 2601
+    },
+    {
+      "bucketStart": 1788220800000,
+      "count": 8638
+    },
+    {
+      "bucketStart": 1788307200000,
+      "count": 6492
+    },
+    {
+      "bucketStart": 1788393600000,
+      "count": 4721
+    },
+    {
+      "bucketStart": 1788480000000,
+      "count": 5685
+    },
+    {
+      "bucketStart": 1788566400000,
+      "count": 6690
+    },
+    {
+      "bucketStart": 1788652800000,
+      "count": 5882
+    },
+    {
+      "bucketStart": 1788739200000,
+      "count": 6848
+    },
+    {
+      "bucketStart": 1788825600000,
+      "count": 5689
+    },
+    {
+      "bucketStart": 1788912000000,
+      "count": 9320
+    },
+    {
+      "bucketStart": 1788998400000,
+      "count": 25145
+    },
+    {
+      "bucketStart": 1789084800000,
+      "count": 9068
+    },
+    {
+      "bucketStart": 1789171200000,
+      "count": 10691
+    },
+    {
+      "bucketStart": 1789257600000,
+      "count": 8401
+    },
+    {
+      "bucketStart": 1789344000000,
+      "count": 9925
+    },
+    {
+      "bucketStart": 1789430400000,
+      "count": 6162
+    },
+    {
+      "bucketStart": 1789516800000,
+      "count": 11440
+    },
+    {
+      "bucketStart": 1789603200000,
+      "count": 4152
+    },
+    {
+      "bucketStart": 1789689600000,
+      "count": 8078
+    },
+    {
+      "bucketStart": 1789776000000,
+      "count": 6093
+    },
+    {
+      "bucketStart": 1789862400000,
+      "count": 11845
+    },
+    {
+      "bucketStart": 1789948800000,
+      "count": 13189
+    },
+    {
+      "bucketStart": 1790035200000,
+      "count": 5805
+    },
+    {
+      "bucketStart": 1790121600000,
+      "count": 11798
+    },
+    {
+      "bucketStart": 1790208000000,
+      "count": 6252
+    },
+    {
+      "bucketStart": 1790294400000,
+      "count": 3443
+    }
+  ],
+  "credentials": [
+    {
+      "username": "enable\\x00",
+      "password": "linuxshell\\x00",
+      "count": 47903
+    },
+    {
+      "username": "system\\x00",
+      "password": "shell\\x00",
+      "count": 43409
+    },
+    {
+      "username": "sh\\x00",
+      "password": "/bin/busybox UNSTABLE\\x00",
+      "count": 15010
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "count": 4813
+    },
+    {
+      "username": "root",
+      "password": "xc3511",
+      "count": 4262
+    },
+    {
+      "username": "root",
+      "password": "root",
+      "count": 4158
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "count": 3976
+    },
+    {
+      "username": "root",
+      "password": "vizxv",
+      "count": 3870
+    },
+    {
+      "username": "support",
+      "password": "support",
+      "count": 3568
+    },
+    {
+      "username": "root",
+      "password": "123456",
+      "count": 2878
+    },
+    {
+      "username": "root",
+      "password": "888888",
+      "count": 2464
+    },
+    {
+      "username": "root",
+      "password": "12345",
+      "count": 2310
+    },
+    {
+      "username": "root",
+      "password": "default",
+      "count": 2299
+    },
+    {
+      "username": "root",
+      "password": "",
+      "count": 2219
+    },
+    {
+      "username": "root",
+      "password": "xmhdipc",
+      "count": 2177
+    },
+    {
+      "username": "root",
+      "password": "juantech",
+      "count": 2146
+    },
+    {
+      "username": "root",
+      "password": "54321",
+      "count": 2092
+    },
+    {
+      "username": "user",
+      "password": "user",
+      "count": 2040
+    },
+    {
+      "username": "admin",
+      "password": "password",
+      "count": 2039
+    },
+    {
+      "username": "root",
+      "password": "anko",
+      "count": 1649
+    }
+  ],
+  "usernames": [
+    {
+      "key": "root",
+      "count": 143977
+    },
+    {
+      "key": "enable\\x00",
+      "count": 48684
+    },
+    {
+      "key": "system\\x00",
+      "count": 43409
+    },
+    {
+      "key": "admin",
+      "count": 28763
+    },
+    {
+      "key": "sh\\x00",
+      "count": 15010
+    },
+    {
+      "key": "ubuntu",
+      "count": 7733
+    },
+    {
+      "key": "user",
+      "count": 7017
+    },
+    {
+      "key": "support",
+      "count": 4162
+    },
+    {
+      "key": "deploy",
+      "count": 3290
+    },
+    {
+      "key": "test",
+      "count": 3173
+    }
+  ],
+  "passwords": [
+    {
+      "key": "linuxshell\\x00",
+      "count": 47903
+    },
+    {
+      "key": "shell\\x00",
+      "count": 43409
+    },
+    {
+      "key": "123456",
+      "count": 16267
+    },
+    {
+      "key": "/bin/busybox UNSTABLE\\x00",
+      "count": 15010
+    },
+    {
+      "key": "admin",
+      "count": 9620
+    },
+    {
+      "key": "123",
+      "count": 7014
+    },
+    {
+      "key": "1234",
+      "count": 6948
+    },
+    {
+      "key": "password",
+      "count": 6921
+    },
+    {
+      "key": "root",
+      "count": 6329
+    },
+    {
+      "key": "12345",
+      "count": 5517
+    }
+  ],
+  "countries": [
+    {
+      "key": "US",
+      "count": 203528
+    },
+    {
+      "key": "NL",
+      "count": 91317
+    },
+    {
+      "key": "DE",
+      "count": 18943
+    },
+    {
+      "key": "SG",
+      "count": 15587
+    },
+    {
+      "key": "CN",
+      "count": 15082
+    },
+    {
+      "key": "FR",
+      "count": 11188
+    },
+    {
+      "key": "GB",
+      "count": 10808
+    },
+    {
+      "key": "ID",
+      "count": 7970
+    },
+    {
+      "key": "IN",
+      "count": 7275
+    },
+    {
+      "key": "AD",
+      "count": 7055
+    },
+    {
+      "key": "VN",
+      "count": 6340
+    },
+    {
+      "key": "KR",
+      "count": 4698
+    },
+    {
+      "key": "BR",
+      "count": 4462
+    },
+    {
+      "key": "CA",
+      "count": 4384
+    },
+    {
+      "key": "FI",
+      "count": 4317
+    },
+    {
+      "key": "HK",
+      "count": 3051
+    },
+    {
+      "key": "RU",
+      "count": 2805
+    },
+    {
+      "key": "TR",
+      "count": 2398
+    },
+    {
+      "key": "UA",
+      "count": 2137
+    },
+    {
+      "key": "AR",
+      "count": 1587
+    },
+    {
+      "key": "BD",
+      "count": 1570
+    },
+    {
+      "key": "MX",
+      "count": 1439
+    },
+    {
+      "key": "IT",
+      "count": 1242
+    },
+    {
+      "key": "SE",
+      "count": 1185
+    },
+    {
+      "key": "TW",
+      "count": 1091
+    },
+    {
+      "key": "MY",
+      "count": 1048
+    },
+    {
+      "key": "PK",
+      "count": 859
+    },
+    {
+      "key": "JP",
+      "count": 825
+    },
+    {
+      "key": "ES",
+      "count": 807
+    },
+    {
+      "key": "PL",
+      "count": 697
+    },
+    {
+      "key": "KE",
+      "count": 668
+    },
+    {
+      "key": "IR",
+      "count": 629
+    },
+    {
+      "key": "CL",
+      "count": 623
+    },
+    {
+      "key": "EC",
+      "count": 592
+    },
+    {
+      "key": "TH",
+      "count": 581
+    },
+    {
+      "key": "PH",
+      "count": 575
+    },
+    {
+      "key": "ZA",
+      "count": 558
+    },
+    {
+      "key": "RO",
+      "count": 539
+    },
+    {
+      "key": "BE",
+      "count": 511
+    },
+    {
+      "key": "NG",
+      "count": 494
+    },
+    {
+      "key": "BG",
+      "count": 439
+    },
+    {
+      "key": "AU",
+      "count": 418
+    },
+    {
+      "key": "KZ",
+      "count": 394
+    },
+    {
+      "key": "VE",
+      "count": 357
+    },
+    {
+      "key": "CO",
+      "count": 356
+    },
+    {
+      "key": "MA",
+      "count": 338
+    },
+    {
+      "key": "MO",
+      "count": 281
+    },
+    {
+      "key": "PT",
+      "count": 277
+    },
+    {
+      "key": "NO",
+      "count": 274
+    },
+    {
+      "key": "BO",
+      "count": 266
+    },
+    {
+      "key": "DZ",
+      "count": 259
+    },
+    {
+      "key": "LU",
+      "count": 239
+    },
+    {
+      "key": "UZ",
+      "count": 230
+    },
+    {
+      "key": "EG",
+      "count": 226
+    },
+    {
+      "key": "PE",
+      "count": 208
+    },
+    {
+      "key": "MM",
+      "count": 184
+    },
+    {
+      "key": "IE",
+      "count": 180
+    },
+    {
+      "key": "SI",
+      "count": 173
+    },
+    {
+      "key": "AT",
+      "count": 147
+    },
+    {
+      "key": "PY",
+      "count": 145
+    },
+    {
+      "key": "PR",
+      "count": 137
+    },
+    {
+      "key": "TZ",
+      "count": 136
+    },
+    {
+      "key": "LK",
+      "count": 119
+    },
+    {
+      "key": "AE",
+      "count": 118
+    },
+    {
+      "key": "PA",
+      "count": 115
+    },
+    {
+      "key": "MN",
+      "count": 113
+    },
+    {
+      "key": "HU",
+      "count": 111
+    },
+    {
+      "key": "LV",
+      "count": 110
+    },
+    {
+      "key": "CZ",
+      "count": 109
+    },
+    {
+      "key": "AM",
+      "count": 103
+    },
+    {
+      "key": "GE",
+      "count": 95
+    },
+    {
+      "key": "SN",
+      "count": 91
+    },
+    {
+      "key": "CM",
+      "count": 89
+    },
+    {
+      "key": "AZ",
+      "count": 88
+    },
+    {
+      "key": "RW",
+      "count": 85
+    },
+    {
+      "key": "EE",
+      "count": 84
+    },
+    {
+      "key": "IQ",
+      "count": 84
+    },
+    {
+      "key": "CU",
+      "count": 81
+    },
+    {
+      "key": "UG",
+      "count": 81
+    },
+    {
+      "key": "GH",
+      "count": 81
+    },
+    {
+      "key": "ZW",
+      "count": 77
+    },
+    {
+      "key": "HR",
+      "count": 75
+    },
+    {
+      "key": "MW",
+      "count": 75
+    },
+    {
+      "key": "UY",
+      "count": 73
+    },
+    {
+      "key": "CY",
+      "count": 69
+    },
+    {
+      "key": "KH",
+      "count": 64
+    },
+    {
+      "key": "TN",
+      "count": 62
+    },
+    {
+      "key": "IL",
+      "count": 61
+    },
+    {
+      "key": "CH",
+      "count": 57
+    },
+    {
+      "key": "SY",
+      "count": 56
+    },
+    {
+      "key": "NP",
+      "count": 55
+    },
+    {
+      "key": "AF",
+      "count": 54
+    },
+    {
+      "key": "NA",
+      "count": 52
+    },
+    {
+      "key": "LA",
+      "count": 52
+    },
+    {
+      "key": "KW",
+      "count": 52
+    },
+    {
+      "key": "IM",
+      "count": 49
+    },
+    {
+      "key": "DO",
+      "count": 49
+    },
+    {
+      "key": "LY",
+      "count": 48
+    },
+    {
+      "key": "PS",
+      "count": 45
+    },
+    {
+      "key": "MD",
+      "count": 43
+    },
+    {
+      "key": "AL",
+      "count": 41
+    },
+    {
+      "key": "SK",
+      "count": 41
+    },
+    {
+      "key": "SV",
+      "count": 38
+    },
+    {
+      "key": "ZM",
+      "count": 37
+    },
+    {
+      "key": "BW",
+      "count": 35
+    },
+    {
+      "key": "MZ",
+      "count": 29
+    },
+    {
+      "key": "MK",
+      "count": 28
+    },
+    {
+      "key": "BY",
+      "count": 27
+    },
+    {
+      "key": "GT",
+      "count": 27
+    },
+    {
+      "key": "DK",
+      "count": 26
+    },
+    {
+      "key": "LT",
+      "count": 21
+    },
+    {
+      "key": "GR",
+      "count": 18
+    },
+    {
+      "key": "RS",
+      "count": 17
+    },
+    {
+      "key": "SA",
+      "count": 15
+    },
+    {
+      "key": "MT",
+      "count": 13
+    },
+    {
+      "key": "JO",
+      "count": 12
+    },
+    {
+      "key": "CD",
+      "count": 12
+    },
+    {
+      "key": "MG",
+      "count": 12
+    },
+    {
+      "key": "OM",
+      "count": 11
+    },
+    {
+      "key": "TG",
+      "count": 10
+    },
+    {
+      "key": "CR",
+      "count": 8
+    },
+    {
+      "key": "BA",
+      "count": 7
+    },
+    {
+      "key": "ET",
+      "count": 7
+    },
+    {
+      "key": "QA",
+      "count": 7
+    },
+    {
+      "key": "NI",
+      "count": 6
+    },
+    {
+      "key": "LB",
+      "count": 6
+    },
+    {
+      "key": "ER",
+      "count": 6
+    },
+    {
+      "key": "AO",
+      "count": 5
+    },
+    {
+      "key": "RE",
+      "count": 5
+    },
+    {
+      "key": "TT",
+      "count": 5
+    },
+    {
+      "key": "MF",
+      "count": 5
+    },
+    {
+      "key": "KG",
+      "count": 4
+    },
+    {
+      "key": "CG",
+      "count": 4
+    },
+    {
+      "key": "BF",
+      "count": 4
+    },
+    {
+      "key": "MV",
+      "count": 3
+    },
+    {
+      "key": "CW",
+      "count": 3
+    },
+    {
+      "key": "BI",
+      "count": 3
+    },
+    {
+      "key": "MR",
+      "count": 3
+    },
+    {
+      "key": "NZ",
+      "count": 3
+    },
+    {
+      "key": "GP",
+      "count": 3
+    },
+    {
+      "key": "BN",
+      "count": 3
+    },
+    {
+      "key": "BH",
+      "count": 3
+    },
+    {
+      "key": "CV",
+      "count": 2
+    },
+    {
+      "key": "XK",
+      "count": 2
+    },
+    {
+      "key": "GA",
+      "count": 2
+    },
+    {
+      "key": "GF",
+      "count": 1
+    },
+    {
+      "key": "MU",
+      "count": 1
+    }
+  ],
+  "asns": [
+    {
+      "asn": 197170,
+      "org": "TechTies Inc.",
+      "count": 210803
+    },
+    {
+      "asn": 398101,
+      "org": "GoDaddy.com, LLC",
+      "count": 194365
+    },
+    {
+      "asn": 14061,
+      "org": "DigitalOcean, LLC",
+      "count": 152325
+    },
+    {
+      "asn": 198364,
+      "org": "BANATSYNC SRL",
+      "count": 90233
+    },
+    {
+      "asn": 47890,
+      "org": "UNMANAGED LTD",
+      "count": 67392
+    },
+    {
+      "asn": 4837,
+      "org": "CHINA UNICOM China169 Backbone",
+      "count": 33381
+    },
+    {
+      "asn": 213790,
+      "org": "Limited Network LTD",
+      "count": 31091
+    },
+    {
+      "asn": 48090,
+      "org": "TECHOFF SRV LIMITED",
+      "count": 28848
+    },
+    {
+      "asn": 206264,
+      "org": "Amarutu Technology Ltd",
+      "count": 23651
+    },
+    {
+      "asn": 24940,
+      "org": "Hetzner Online GmbH",
+      "count": 20548
+    }
+  ],
+  "clients": [
+    {
+      "key": "SSH-2.0-Go",
+      "count": 194833
+    },
+    {
+      "key": "SSH-2.0-libssh_0.9.6",
+      "count": 47836
+    },
+    {
+      "key": "SSH-2.0-libssh_0.11.1",
+      "count": 2963
+    },
+    {
+      "key": "SSH-2.0-PuTTY_Release_0.84",
+      "count": 2521
+    },
+    {
+      "key": "SSH-2.0-libssh2_1.11.0",
+      "count": 1479
+    },
+    {
+      "key": "SSH-2.0-AsyncSSH_2.1.0",
+      "count": 966
+    },
+    {
+      "key": "SSH-2.0-libssh_0.12.0",
+      "count": 707
+    },
+    {
+      "key": "SSH-2.0-libssh2_1.11.1",
+      "count": 249
+    }
+  ],
+  "attck": [
+    {
+      "techniqueId": "T1110.001",
+      "technique": "Brute Force: Password Guessing",
+      "tactic": "Credential Access",
+      "count": 450635
+    },
+    {
+      "techniqueId": "T1021.004",
+      "technique": "Remote Services: SSH",
+      "tactic": "Lateral Movement",
+      "count": 269098
+    },
+    {
+      "techniqueId": "T1059.004",
+      "technique": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 154407
+    },
+    {
+      "techniqueId": "T1021",
+      "technique": "Remote Services (Telnet)",
+      "tactic": "Lateral Movement",
+      "count": 100049
+    },
+    {
+      "techniqueId": "T1078.001",
+      "technique": "Valid Accounts: Default Accounts",
+      "tactic": "Initial Access",
+      "count": 20633
+    },
+    {
+      "techniqueId": "T1082",
+      "technique": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 16146
+    },
+    {
+      "techniqueId": "T1222.002",
+      "technique": "File and Directory Permissions Modification",
+      "tactic": "Defense Evasion",
+      "count": 10858
+    },
+    {
+      "techniqueId": "T1105",
+      "technique": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 6993
+    },
+    {
+      "techniqueId": "T1057",
+      "technique": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 1867
+    },
+    {
+      "techniqueId": "T1098.004",
+      "technique": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 1441
+    },
+    {
+      "techniqueId": "T1053.003",
+      "technique": "Scheduled Task/Job: Cron",
+      "tactic": "Persistence",
+      "count": 1382
+    },
+    {
+      "techniqueId": "T1003.008",
+      "technique": "OS Credential Dumping: /etc/passwd and /etc/shadow",
+      "tactic": "Credential Access",
+      "count": 71
+    },
+    {
+      "techniqueId": "T1016",
+      "technique": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 52
+    },
+    {
+      "techniqueId": "T1070",
+      "technique": "Indicator Removal",
+      "tactic": "Defense Evasion",
+      "count": 9
+    }
+  ]
+}
